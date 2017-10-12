@@ -1,0 +1,50 @@
+{%  extends 'photologue/gallery_archive.html' %}
+
+{% load i18n %}
+
+{% block content %}
+ <div class="row col-lg-12">
+        <h1 class="page-header">{% trans "Latest photo galleries" %}</h1>
+    </div>
+
+	<div class="row">
+
+		<aside class="col-md-2">
+
+			<h4>{% trans "Filter by year" %}</h4>
+			<ul>
+			{% for date in date_list %}
+				<li><a href="{% url 'photologue:pl-gallery-archive-year' date.year %}">{{ date|date:"Y" }}</a></li>
+			{% endfor %}
+			</ul>
+
+		</aside>
+
+		<main class="col-md-10">
+
+			{% if latest %}
+			    {% for gallery in latest %}
+
+                    <h2><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h2>
+                    <p class="muted"><small>{% trans "Published" %} {{ gallery.date_added }}</small></p>
+                    {% if gallery.description %}<p>{{ gallery.description|safe }}</p>{% endif %}
+
+                    {% for photo in gallery.sample %}
+                        <a href="{{ photo.get_absolute_url }}">
+                             <img src="{{ photo.get_thumbnail_url }}" class="thumbnail " alt="{{ photo.title }}">
+                        </a>
+                    {% endfor %}
+
+			    {% endfor %}
+			{% else %}
+			    <p>{% trans "No galleries were found" %}.</p>
+			{% endif %}
+
+		</main>
+
+	</div>
+
+{% endblock %}
+
+
+

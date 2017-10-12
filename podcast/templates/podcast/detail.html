@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+        <img src="{{ series.logo.url }}" height="350px">
+    {% for preach in preaching_list %}
+
+        <h3>{{ preach.title }}</h3>
+        <audio controls>
+            <source src="{{ preach.audio_file.url }}">
+        </audio>
+    {% endfor %}
+
+
+{% endblock %}

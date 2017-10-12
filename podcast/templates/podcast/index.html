@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% for ser in series %}
+        <img src="{{ ser.logo.url }}" height="350px">
+        <h3><a href="{{ ser.get_absolute_url }}">{{ ser.title }}</a></h3>
+        <p>{{ ser.description|linebreaks|truncatewords_html:30 }}</p> <br><br>
+    {% endfor %}
+
+
+{##}
+{#    {% for preach in preaching %}#}
+{#        <h4>{{ preach.title }}</h4>#}
+{#        {{ preach.title }}#}
+{#        <audio controls>#}
+{#            <source src="{{ preach.audio_file.url }}" type="audio/mpeg">#}
+{#        </audio><br>#}
+{##}
+{##}
+{#    {% endfor %}#}
+
+
+
+{% endblock %}

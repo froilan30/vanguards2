@@ -1,0 +1,113 @@
+
+.navbar{border-radius: 0}
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; }
+
+.navbar .navbar-collapse { position: relative; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+.navbar.navbar-inverse  { background-color: #343434; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+/*.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }*/
+/*.navbar.navbar-inverse .nav-collapse { background-color: #222; }*/
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+
+nav.navbar{
+    background-color: rgba(0,0,0,0);
+    height: 80px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    border: none;
+
+}
+
+nav .navbar.navbar-fixed-top{
+    color: white;
+}
+
+
+/*parallax home*/
+
+.parallax-window{
+    min-height:400px;
+    background: transparent;
+}
+
+.container-fluid{
+    padding: 0;
+}
+.window-wrapper{
+    height:700px;
+    background: #ffffff;
+
+}
+
+
+/* shrink effect*/
+
+
+nav.shrink.navbar{
+    background-color: rgba(0,0,0,0.5);
+    height:60px;
+    padding-top: 0px;
+}
+
+nav .navbar-header a.navbar-brand{
+    padding-top: 30px;
+    font-size: 30px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    color:white ;
+
+}
+
+nav.shrink a.navbar-brand {
+    font-size: 20px;
+    padding: 15px 0 0 80px;
+    color: white;
+
+}
+
+
+nav ul li a{
+
+    color: white;
+    font-size: 14px;
+    padding-top: 20px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+nav.shrink  li a{
+    color: white;
+    font-size: 16px;
+    font-family: Arial;
+    padding-top: 15px;
+
+}
+
+
+.cover{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+

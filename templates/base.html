@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/styles.css' %}">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="font-family: 'Montserrat', sans-serif;" href="{% url 'home:home' %}">VANGUARDS</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'home:home' %}">Home</a></li>
+            <li><a href="{% url 'blog:post_list' %}">Blog</a></li>
+            <li><a href="{% url 'podcast:index' %}">Podcast</a></li>
+            <li><a href="{% url 'gallery:galleryindex' %}">Gallery</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+
+
+    </div>
+</nav><!-- /.navbar -->
+
+<div class="container-fluid">
+    {% block content %}
+    {% endblock %}
+
+
+
+</div>
+
+
+
+
+
+<script src="{% static 'blog/js/jquery-3.2.1.js' %}" type="text/javascript" rel="script"></script>
+<script src="{% static 'blog/js/bootstrap.js' %} " type="text/javascript" rel="script"></script>
+<script src="{% static 'blog/js/parallax.min.js' %}"></script>
+<script src="{%  static 'blog/js/nav-shrink.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=require"></script>
+
+<script>
+
+$('.parallax-window').parallax();
+
+
+function myMap() {
+    var myLatLng = {lat: 15.185224, lng: 120.583102};
+    var mapOptions = {
+        center: myLatLng,
+        zoom: 19,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Dau Christian Community Church'
+    });
+}
+
+myMap()
+
+
+
+
+</script>
+
+
+</body>
+</html>

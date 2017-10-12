@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Blogg</h1>
+    <div class="container col-md-8">
+        {% for post in posts %}
+            <h3><a href="{{  post.get_absolute_url }}">{{ post.title }}</a></h3>
+            {% for tag in post.tags.all %}
+                <a href="{% url "blog:post_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <p>Publish | <i>{{ post.publish }}</i> by {{ post.author }}</p>
+            <p>{{ post.body|linebreaks|truncatewords_html:30 }}</p>
+            <p><a href="{{ post.get_absolute_url }}">Read more..</a></p>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
